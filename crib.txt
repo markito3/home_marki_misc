@@ -2,68 +2,10 @@ o binding
 - GBC: very nice
 - velo: no good
 
-o chmod
-           _w_h_o         One or a combination of two or more of the following:
-
-                            uuuu    Modify permissions for user.
-                            gggg    Modify permissions for group.
-                            oooo    Modify permissions for others.
-                            aaaa    Modify permissions for all users (aaaa is
-                                 equivalent to uuuuggggoooo).
-
-           _o_p          Must be specifed, and can be one of the following:
-
-                            ++++    Add _p_e_r_m_i_s_s_i_o_n to the existing file mode
-                                 bits.
-                            ----    Delete _p_e_r_m_i_s_s_i_o_n from the existing file
-                                 mode bits.
-                            ====    Set _p_e_r_m_i_s_s_i_o_n to specified value (discard
-                                 existing mode bits).
-
-           _p_e_r_m_i_s_s_i_o_n  Any combination of the following letters:
-
-                            rrrr    Add or delete read permission for _w_h_o.
-                            wwww    Add or delete write permission for _w_h_o.
-                            xxxx    Add or delete execute permission for _w_h_o.
-                            ssss    Set owner or group ID for _w_h_o.  Useful only
-                                 if uuuu or gggg is explicitly or implicitly
-                                 present in _w_h_o.
-
-      Absolute permissions can be set by specifing a _n_u_m_e_r_i_c__m_o_d_e, an octal
-      number constructed from the logical OR of the following mode bits:
-
-      Miscellaneous mode bits:
-
-
-           +------------------ 4000  set user ID on execution (file)
-           |                           or hide directory (see _c_d_f(4))
-           |     +------------ 2000  set group ID on execution
-           |     |     +------ 1000  sticky bit; see _c_h_m_o_d(2)
-           |     |     |
-           s     s     t
-
-
-      Permission mode bits:
-
-
-           +------------------ 0400  read by owner
-           | +---------------- 0200  write by owner
-           | | +-------------- 0100  execute (search in directory) by owner
-           | | | +------------ 0040  read by group
-           | | | | +---------- 0020  write by group
-           | | | | | +-------- 0010  execute/search by group
-           | | | | | | +------ 0004  read by others
-           | | | | | | | +---- 0002  write by others
-           | | | | | | | | +-- 0001  execute/search by others
-           | | | | | | | | |
-           r w x r w x r w x
-
 o CERNLIB
 - when compiling routines use: f77 +ppu ...
   to put underscores after the symbol names. That is how they appear in the
   .a files.
-
-o cis: must be accessed on cebafa
 
 o colors: find list of them in /usr/lib/X11/rgb.txt
 
@@ -107,53 +49,6 @@ o documentation
 
 o elm
 - aliases: make entries in ~/.elm/aliases.text, execute command "elmalias"
-
-o emacs
-- Switch between windows: ^XO
-- Go to another buffer: ^XB (<space> to see existing buffers)
-- See list of buffers in split window: ^X^B
-- Include a file: ^X^F
-- Unsplit windows: ^X1
-- Split windows: ^X2
-- Isearch:
-    <ESC> terminates string
-    ^S to find next occurrence forward
-    ^R to find next occurrence backward
-- Go to specific line: <ESC>x
-                       goto-line
-                       line number
-- save without exit: ^X^S
-- Exit editor: ^X^C
-- Abort present command: ^G
-- Macro's
-  ^X( ...key sequence... ^X)
-  ^Xe runs macro
-- key binding
-  M-x local-set-key
-  <key>
-  <command>
-    o M-x = <ESC>x
-    o a popular <command> is call-last-kbd-macro
-- files on remote hosts
-  /username@hostname:/usual_path/filename
-
-o enscript
-  To build it:
-    tar xvf enscript-1.4.0.tar
-    cd enscript-1.4.0
-    ./configure --prefix=/home/marki
-    make
-    make install
-
-o environment variables
-- setenv: set one
-- unsetenv: get rid of one
-
-o errors
-- too many processes: blew user limit on number of processes. Limit is
-  25 on cebafb, 50 on e and 50 on h (10/8/96). See /etc/conf/dfile,
-  entry "maxuprc." (e and h show no entry for maxuprc. Is the default
-  50?)
 
 o fonts
               You
@@ -278,34 +173,6 @@ o mss
                            list of full path names for files 
                            that you want retrieved from the SILO.
                            One full path name per line in this file.	
-To get one file at a time:
-
-1) logon to jlabs1,2,3
-2) setup mss
-3) mssget /mss/clas/comm97/clasrun000596.a00 /work/clas/test
-      or
-   mssget /mss/clas/comm97/clasrun000596.a00 /work/clas/mjohnson
-      or
-   mssget /mss/clas/comm97/clasrun000596.a00 /work/clas/junk
-
-  -- Just as long as the destination directory exists.
-
-4) wait for email stating that the file is copied over
-
-To get more than one file at once:
-
-1) logon to jlabs1,2,3
-2) setup mss
-3) mssget -f MY_FILES /work/clas/DIR
-       where MT_FILES is a file containing the full pathnames to the 
-       stub files you want (one per line).
-       DIR is the destination directory under /work/clas.
-4) wait for email
-
-        Forgot the name of your favorite data file in the tape silo?
-Look under /mss/clas/test for stub files.  They contain lots of useful
-info (like original file size).  I've no idea what the format of
-these files is.
 
 o network
 - IP address database file: /site/info/IPaddress
@@ -360,9 +227,10 @@ o reqs: online purchasing system. On db1:
   source .login.cue_default
   reqs
 
-  This procedure is sufficient, if not necessary.
+  This procedure is sufficient, if not necessary.  
 
 - use DEC keypad, <PF4> to pop up a level.
+- use KP0 to search on list-o-vendors page.
 
 o shells
 - csh does not allow passing of arguments to a script via the source
@@ -384,6 +252,10 @@ o special characters (HP10, response to echo command, except for $):
   < less than
   > greater than
   ? question mark
+
+o traceroute: find out how internet traffic is routed. There may be problems
+  doing this from JLab due to the internet security set up. Find it on Linux in
+  /usr/sbin.
 
 o Terminal Server
   telnet to latsrv.cebaf.gov
