@@ -255,12 +255,66 @@ o monitoring cpu use
 - renice: to change priority of an existing job. "renice <pid>" works for most
   cases.
 
+o mss
+  
+  To get a file out of the SILO and onto the /work/clas disk
+  you should use jget.
+    1) setup mss
+    2) jget /mss/clas/.../filename  /work/clas/.../filename
+  
+  You will get email  when it is done.  You can also do "man jget"
+  for the man page.
+  
+  There also exists a managed group of disks called /cache.   The
+  /cache filesystems are used to pull files out of the SILO for
+  use, but the files are removed when disk space for newer requests 
+  is needed.  The oldest file (by access time) is deleted from the 
+  /cache filesystems when new requests are made.  To copy a file to
+  cache, do the following:
+    1) setup mss
+    2) request_file -f /mss/clas/.../filename
+          or
+       request_file FILE   where FILE is a file that contains a 
+                           list of full path names for files 
+                           that you want retrieved from the SILO.
+                           One full path name per line in this file.	
+To get one file at a time:
+
+1) logon to jlabs1,2,3
+2) setup mss
+3) mssget /mss/clas/comm97/clasrun000596.a00 /work/clas/test
+      or
+   mssget /mss/clas/comm97/clasrun000596.a00 /work/clas/mjohnson
+      or
+   mssget /mss/clas/comm97/clasrun000596.a00 /work/clas/junk
+
+  -- Just as long as the destination directory exists.
+
+4) wait for email stating that the file is copied over
+
+To get more than one file at once:
+
+1) logon to jlabs1,2,3
+2) setup mss
+3) mssget -f MY_FILES /work/clas/DIR
+       where MT_FILES is a file containing the full pathnames to the 
+       stub files you want (one per line).
+       DIR is the destination directory under /work/clas.
+4) wait for email
+
+        Forgot the name of your favorite data file in the tape silo?
+Look under /mss/clas/test for stub files.  They contain lots of useful
+info (like original file size).  I've no idea what the format of
+these files is.
+
 o network
 - IP address database file: /site/info/IPaddress
 - nslookup to find an IP address (name server look up)
 - before changing or adding an ethernet device, IP address must be
   entered in the lab name tables, otherwise packets cannot be routed
   correctly(?). 
+
+o nm: look at contents of a binary executable or library.
 
 o path
 - Best not to define path in .cshrc. Otherwise, if the path is changed
