@@ -54,6 +54,6 @@
 #
 # produce caldb change report
 #
-13 22 * * * export CLAS_TOOLS=/group/clas/tools ; /home/marki/bin/change_report_caldb.pl
+13 22 * * 1 export CLAS_TOOLS=/group/clas/tools ; /home/marki/bin/change_report_caldb.pl
 #
 # end of crontab file
