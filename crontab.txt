@@ -46,6 +46,6 @@
 #
 # look at idle work disks
 #
-0 0,2,4,6,8,10,12,14,16,18,20,22 * * * /home/marki/bin/work_idle_cron.sh
+10 0,3,6,9,12,15,18,21 * * * /home/marki/bin/work_idle_cron.sh
 #
 # end of crontab file
