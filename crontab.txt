@@ -1,7 +1,7 @@
 #
-# at 8 am every day, check the work disks
+# every four hours starting at midnight, check the work disks
 #
-0 8 * * * rm -f /scratch/marki/work_use_cron.log ; /home/marki/bin/work_use_cron.csh
+0 0,4,8,12,16,20 * * * rm -f /scratch/marki/work_use_cron.log ; /home/marki/bin/work_use_cron.csh
 #
 # at 3:45 am every day, warn users about their work disk usage
 #
@@ -36,12 +36,12 @@
 #
 30 0 15 * * /home/marki/bin/work_idle_cron.csh
 #
-# at 10 min., 30 min. and 50 min. after every hour, clean up the cache disk
+# 0 minutes after every hour, clean up the cache disk
 #
-10,30,50 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl
+0 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl
 #
 # at 15 min., 35 min and 55 min. after every hour, update status pages
 #
-15,35,55 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; js.sh ; fq.sh ; cu.sh ; cf.sh ; ss.sh
+15,35,55 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; js.sh ; fq.sh ; cu.sh ; cf.sh ; ss.sh ; cs.sh
 #
 # end of crontab file
