@@ -11,30 +11,10 @@
 #
 4 * * * * chmod -R a+r public_html/*
 #
-# at 10 minutes after every 4th hour, look at access latency of cache disks
-#
-#10 0,4,8,12,16,20 * * * /home/marki/bin/cache_time.perl >> /home/scratch/cache_time.txt
-#
-# at 15 minutes after every hour, look at work disk latency
-#
-#15 * * * * /home/marki/bin/work_time.pl >> /home/scratch/work_time.txt
-#
-# at 10 minutes after every hour, look at number of tape requests
-#
-#10 * * * * /home/marki/bin/tape_reqs.pl >> /home/scratch/tape_reqs.txt
-#
-# at 48 minutes after every hour, write down the status of the tape queues
-#
-#48 * * * * cd /scratch ; /home/marki/bin/farm_queue.pl >> farm_queue.txt
-#
 # at 0 minutes after 5 am, every day, examine the status of the production
 # epics build
 #
 34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
-#
-# at 12:30 am on the 15th, issue a work disk usage report
-#
-30 0 15 * * /home/marki/bin/work_idle_cron.csh
 #
 # 0, 15, 30 and 45 minutes after every hour, clean up the cache disk
 #
@@ -55,9 +35,5 @@
 # produce caldb change report
 #
 13 22 * * 1 export CLAS_TOOLS=/group/clas/tools ; /home/marki/bin/change_report_caldb.pl
-#
-# make replication test database entries
-#
-#* * * * * echo INSERT INTO Rtest VALUES \(NULL,\'`date`\',NULL\) | mysql test
 #
 # end of crontab file
