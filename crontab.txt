@@ -30,7 +30,7 @@
 #
 # check for well-formed privilege table for CalDB
 #
-30 17 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clasdb 'setenv CLAS_TOOLS /group/clas/tools ; echo g2togo | $CLAS_TOOLS/caldb/caldb_check_tables_priv.pl'
+30 17 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clasdb 'setenv CLAS_TOOLS /group/clas/tools ; echo goodrelations | $CLAS_TOOLS/caldb/caldb_check_tables_priv.pl'
 #
 # produce caldb change report
 #
