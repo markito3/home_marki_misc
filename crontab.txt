@@ -1,8 +1,4 @@
 #
-# at 4:00 pm every day, warn users about their work disk usage
-#
-0 16 * * * /home/marki/bin/work_warn_db.pl mail=1
-#
 # every at 5 minutes after every hour, re-allow world read to web pages
 #
 4 * * * * chmod -R a+r public_html/*
@@ -35,5 +31,9 @@
 # check that one can connect to the calib database on clasdb
 #
 14,29,44,59 * * * * echo show tables | mysql -h clasdb -u clasuser calib | grep Tables_in_calib > /dev/null ; echo $? | grep -v 0
+#
+# keep primex directories on the work disk
+#
+30 18 * * 2,6 touch -a /work/clas/disk?/primex/.keep_directory /work/clas/farm_output/primex/.keep_directory
 #
 # end of crontab file
