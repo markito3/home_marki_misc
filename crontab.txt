@@ -36,12 +36,12 @@
 #
 30 0 15 * * /home/marki/bin/work_idle_cron.csh
 #
-# 0 minutes after every hour, clean up the cache disk
+# 0, 15, 30 and 45 minutes after every hour, clean up the cache disk
 #
-0 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl
+0,15,30,45 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl
 #
-# at 15 min., 35 min and 55 min. after every hour, update status pages
+# 5, 20, 35 and 50 min. after every hour, update status pages
 #
-15,35,55 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; js.sh ; fq.sh ; cu.sh ; cf.sh ; ss.sh ; cs.sh
+5,20,35,55 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; js.sh ; fq.sh ; cu.sh ; cf.sh ; ss.sh ; cs.sh
 #
 # end of crontab file
