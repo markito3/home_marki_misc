@@ -15,6 +15,6 @@
 #
 # move here from claslib@ifarml1 to avoid SMP, at least for now
 #
-0 0,4,8,12,16,20 * * * /group/clas/tools/status/wu.sh
+0 0,4,8,12,16,20 * * * /home/marki/clas_cvs/tools/status/wu.sh
 0 2,6,10,14,18,22 * * * /group/clas/tools/status/work_idle_cron.sh
 # end of crontab file
