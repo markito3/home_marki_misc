@@ -1,11 +1,11 @@
 #
-# every four hours starting at midnight, make a work disk usage summary
+# every three hours starting at midnight, make a work disk usage summary
 #
-0 0,4,8,12,16,20 * * * /home/marki/bin/wu.sh
+0 0,3,6,9,12,15,18,21 * * * /home/marki/bin/wu.sh
 #
-# at 9:00 am every day, warn users about their work disk usage
+# at 4:00 pm every day, warn users about their work disk usage
 #
-0 9 * * * /home/marki/bin/work_warn_db.pl mail=1
+0 16 * * * /home/marki/bin/work_warn_db.pl mail=1
 #
 # every at 5 minutes after every hour, re-allow world read to web pages
 #
