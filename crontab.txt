@@ -48,4 +48,8 @@
 #
 7 2,5,8,11,14,17,20,23 * * * /home/marki/bin/work_idle_cron.sh
 #
+# check for well-formed privilege table for CalDB
+#
+6 18 * * * ssh clasdb 'setenv CLAS_TOOLS /group/clas/tools ; $CLAS_TOOLS/caldb/caldb_check_tables_priv.pl'
+#
 # end of crontab file
