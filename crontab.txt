@@ -56,4 +56,8 @@
 #
 13 22 * * 1 export CLAS_TOOLS=/group/clas/tools ; /home/marki/bin/change_report_caldb.pl
 #
+# make replication test database entries
+#
+#* * * * * echo INSERT INTO Rtest VALUES \(NULL,\'`date`\',NULL\) | mysql test
+#
 # end of crontab file
