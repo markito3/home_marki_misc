@@ -9,7 +9,7 @@
 #
 # every at 5 minutes after every hour, re-allow world read to web pages
 #
-5 * * * * chmod -R a+r public_html/*
+4 * * * * chmod -R a+r public_html/*
 #
 # at 10 minutes after every 4th hour, look at access latency of cache disks
 #
@@ -30,7 +30,7 @@
 # at 0 minutes after 5 am, every day, examine the status of the production
 # epics build
 #
-0 5 * * * /usr/local/bin/ssh clon01 /home/epics/bin/cvs_prod_check.csh
+34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
 #
 # at 12:30 am on the 15th, issue a work disk usage report
 #
@@ -46,6 +46,6 @@
 #
 # look at idle work disks
 #
-10 0,3,6,9,12,15,18,21 * * * /home/marki/bin/work_idle_cron.sh
+7 2,5,8,11,14,17,20,23 * * * /home/marki/bin/work_idle_cron.sh
 #
 # end of crontab file
