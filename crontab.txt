@@ -1,7 +1,7 @@
 #
-# every four hours starting at midnight, check the work disks
+# every four hours starting at midnight, make a work disk usage summary
 #
-0 0,4,8,12,16,20 * * * rm -f /scratch/marki/work_use_cron.log ; /home/marki/bin/work_use_cron.csh
+0 0,4,8,12,16,20 * * * /home/marki/bin/wu.sh
 #
 # at 3:45 am every day, warn users about their work disk usage
 #
