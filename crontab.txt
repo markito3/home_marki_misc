@@ -14,7 +14,7 @@
 # at 0 minutes after 5 am, every day, examine the status of the production
 # epics build
 #
-34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
+#34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
 #
 # 0, 15, 30 and 45 minutes after every hour, clean up the cache disk
 #
