@@ -3,9 +3,9 @@
 #
 0 0,4,8,12,16,20 * * * /home/marki/bin/wu.sh
 #
-# at 3:45 am every day, warn users about their work disk usage
+# at 9:00 am every day, warn users about their work disk usage
 #
-45 3 * * * rm -f /scratch/marki/work_warn_cron.log ; export PATH=/home/marki/bin:$PATH ; work_warn.csh
+0 9 * * * /home/marki/bin/work_warn_db.pl
 #
 # every at 5 minutes after every hour, re-allow world read to web pages
 #
