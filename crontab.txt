@@ -8,10 +8,6 @@
 #
 #34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
 #
-# 16 and 46 minutes after every hour, clean up the cache disk
-#
-16,46 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl markfiles=1
-#
 # 5, 20, 35 and 50 min. after every hour, update status pages
 #
 5,20,35,50 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; js.sh ; fq.sh ; cu.sh ; cf.sh ; ss.sh ; cs.sh
