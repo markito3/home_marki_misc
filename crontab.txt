@@ -38,7 +38,7 @@
 #
 # 0, 15, 30 and 45 minutes after every hour, clean up the cache disk
 #
-0,15,30,45 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl
+0,15,30,45 * * * * export PATH=/site/wrappers:/site/bin:$PATH ; /home/marki/bin/cache_db.pl markfiles=1
 #
 # 5, 20, 35 and 50 min. after every hour, update status pages
 #
