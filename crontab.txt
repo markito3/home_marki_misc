@@ -9,15 +9,6 @@
 #
 30 18 * * 2,6 touch -a /work/clas/disk?/primex/.keep_directory /work/clas/farm_output/primex/.keep_directory
 #
-# update Hall status gif's until Arne comes back
-#
-#0,10,20,30,40,50 * * * * cd /group/clas/www/clasweb/htbin/HALL_ABC ; ./current_nocgi.pl ; ./status_nocgi.pl ; ./get_abc_mcc_web.pl mcc ; ./get_abc_mcc_web.pl halla ; ./get_abc_mcc_web.pl hallb ; ./get_abc_mcc_web.pl hallc
-#
-# move here from claslib@ifarml1 to avoid SMP, at least for now
-#
-0 0,4,8,12,16,20 * * * /home/marki/clas_cvs/tools/status/wu.sh
-0 2,6,10,14,18,22 * * * /group/clas/tools/status/work_idle_cron.sh
-#
 # maintenance reminders
 #
 3 3 * * 1,5 /var/www/cgi-bin/maintenance/cgi/maintain_email 
