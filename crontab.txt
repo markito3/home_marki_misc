@@ -8,10 +8,6 @@
 #
 #34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
 #
-# 5, 20, 35 and 50 min. after every hour, update status pages
-#
-5,20,35,50 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; ss.sh ; cs.sh
-#
 # look at idle work disks
 #
 7 2,5,8,11,14,17,20,23 * * * /home/marki/bin/work_idle_cron.sh
