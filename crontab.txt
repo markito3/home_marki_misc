@@ -1,8 +1,4 @@
 #
-# every two hours, make a work disk usage summary
-#
-11 0,2,4,6,8,10,12,14,16,18,20,22 * * * /home/marki/bin/wu.sh
-#
 # at 4:00 pm every day, warn users about their work disk usage
 #
 0 16 * * * /home/marki/bin/work_warn_db.pl mail=1
@@ -30,10 +26,14 @@
 #
 # check for well-formed privilege table for CalDB
 #
-30 17 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clasdb 'setenv CLAS_TOOLS /group/clas/tools ; echo goodrelations | $CLAS_TOOLS/caldb/caldb_check_tables_priv.pl'
+30 17 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/id_dsa clasdb 'setenv CLAS_TOOLS /group/clas/tools ; echo goodrelations | $CLAS_TOOLS/caldb/caldb_check_tables_priv.pl'
 #
 # produce caldb change report
 #
 13 22 * * 1 export CLAS_TOOLS=/group/clas/tools ; /home/marki/bin/change_report_caldb.pl
+#
+# check that one can connect to the calib database on clasdb
+#
+14,29,44,59 * * * * echo show tables | mysql -h clasdb -u clasuser calib | grep Tables_in_calib > /dev/null ; echo $? | grep -v 0
 #
 # end of crontab file
