@@ -1,28 +1,12 @@
 #
-# every at 5 minutes after every hour, re-allow world read to web pages
+# re-allow world read to web pages
 #
 4 * * * * chmod -R a+r public_html/*
 #
 # at 0 minutes after 5 am, every day, examine the status of the production
 # epics build
 #
-#34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
-#
-# look at idle work disks
-#
-7 2,5,8,11,14,17,20,23 * * * /home/marki/bin/work_idle_cron.sh
-#
-# check for well-formed privilege table for CalDB
-#
-30 17 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/id_dsa clasdb 'setenv CLAS_TOOLS /group/clas/tools ; echo goodrelations | $CLAS_TOOLS/caldb/caldb_check_tables_priv.pl'
-#
-# produce caldb change report
-#
-13 22 * * 1 export CLAS_TOOLS=/group/clas/tools ; /home/marki/bin/change_report_caldb.pl
-#
-# check that one can connect to the calib database on clasdb
-#
-14,29,44,59 * * * * echo show tables | mysql -h clasdb -u clasuser calib | grep Tables_in_calib > /dev/null ; echo $? | grep -v 0
+34 4 * * * /usr/local/bin/ssh -i /home/marki/.ssh2/identity clon01 /home/epics/bin/cvs_prod_check.csh
 #
 # keep primex directories on the work disk
 #
