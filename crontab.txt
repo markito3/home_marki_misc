@@ -17,4 +17,8 @@
 #
 0 0,4,8,12,16,20 * * * /home/marki/clas_cvs/tools/status/wu.sh
 0 2,6,10,14,18,22 * * * /group/clas/tools/status/work_idle_cron.sh
+#
+# maintenance reminders
+#
+3 3 * * 1,5 /var/www/cgi-bin/maintenance/cgi/maintain_email 
 # end of crontab file
