@@ -10,7 +10,7 @@
 #
 # 5, 20, 35 and 50 min. after every hour, update status pages
 #
-5,20,35,50 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; cf.sh ; ss.sh ; cs.sh
+5,20,35,50 * * * * export PATH=/home/marki/bin:/site/bin:$PATH ; ss.sh ; cs.sh
 #
 # look at idle work disks
 #
