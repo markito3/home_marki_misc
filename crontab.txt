@@ -5,7 +5,7 @@
 #
 # at 9:00 am every day, warn users about their work disk usage
 #
-0 9 * * * /home/marki/bin/work_warn_db.pl
+0 9 * * * /home/marki/bin/work_warn_db.pl mail=1
 #
 # every at 5 minutes after every hour, re-allow world read to web pages
 #
