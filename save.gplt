@@ -1,0 +1,8 @@
+# File name: save.plt - saves a Gnuplot plot as a PostScript file
+# to save the current plot as a postscript file issue the commands:
+#  gnuplot>   load 'saveplot'
+#  gnuplot>   !mv my-plot.ps another-file.ps
+set terminal jpeg
+set output "my-plot.jpg"
+replot
+set terminal x11
