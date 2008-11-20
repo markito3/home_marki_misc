@@ -6,3 +6,6 @@
 57 13 6 * * export PATH=/home/marki/bin:$PATH ; /home/marki/bin/backup.pl -t month -s /home/marki -d /u/scratch/marki/home
 5 * * * * export PATH=/home/marki/bin:$PATH ; /home/marki/bin/backup_stick.pl
 #9 15 * * * export PATH=/home/marki/bin:$PATH ; backup.pl -s 68.13.215.153:/home/marki -d /scratch/noisy -t day_of_week
+55 11 * * Mon,Tue,Wed,Thu,Fri echo check it | mail -s weather marki@jlab.org
+# build, nightly
+0 0 * * * cd /scratch/nightly ; svn co $HDSVN/trunk/scripts/build_scripts ; export BUILD_SCRIPTS=`pwd`/build_scripts ; csh -c 'source build_scripts/gluex_env.csh ; make -f $BUILD_SCRIPTS/Makefile_all'
