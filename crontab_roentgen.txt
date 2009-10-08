@@ -1,0 +1,6 @@
+15,30,45 * * * * export PATH=/home/marki/bin:$PATH ; /home/marki/bin/backup.pl -t minute -s /home/marki -d /home/scratch/backup
+0 * * * * export PATH=/home/marki/bin:$PATH ; /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /home/scratch/backup
+0 0 * * * export PATH=/home/marki/bin:$PATH ; /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /u/scratch/marki/home
+# build, nightly
+0 0 * * * cd /scratch/nightly ; svn co $HDSVN/trunk/scripts/build_scripts ; export BUILD_SCRIPTS=`pwd`/build_scripts ; csh -c 'source build_scripts/gluex_env.csh ; make -f $BUILD_SCRIPTS/Makefile_all'
+0 * * * * echo test cron job ; cat /home/marki/.cshrc
