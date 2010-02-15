@@ -1,0 +1,5 @@
+0 0 * * mon,wed,fri /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /media/KINGSTON/homebox
+0 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_hour
+30 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_half_hour
+0 * * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /scratch/backup
+15,30,45 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /scratch/backup | grep -v line\ 11 | grep -v gnupg
