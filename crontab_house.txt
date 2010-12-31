@@ -1,6 +1,6 @@
 0 0 * * mon,wed,fri /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /media/KINGSTON/homebox
-0 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_hour
-30 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_half_hour
-0 * * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /scratch/backup
-15,30,45 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /scratch/backup | grep -v line\ 11 | grep -v gnupg
+0 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_hour 2>&1 | grep -v -e LCK -e LNK -e "previous errors" -e gvfs-metadata -e .house.localdomain -e "previous errors"
+30 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_half_hour 2>&1 | grep -v -e LCK -e LNK -e "previous errors" -e gvfs-metadata -e .house.localdomain -e "previous errors"
+0 * * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /scratch/backup 2>&1 | grep -v -e LCK -e LNK -e "previous errors"
+15,30,45 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /scratch/backup 2>&1 | grep -v -e LCK -e LNK -e "previous errors"
 0 4 * * * /home/marki/Podcasts/bashpodder.shell
