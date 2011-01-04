@@ -1,5 +1,5 @@
-0 12 7,14,21,28 * * /home/marki/bin/backup.pl -t day_of_month -s /home/marki -d /home/snapshot/marki
-0 12 * * * /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /home/snapshot/marki
-0 0,3,6,9,12,15,18,21 * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /home/snapshot/marki
-0,15,30,45 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /home/snapshot/marki
+0 12 1,15 * * /home/marki/bin/backup.pl -t day_of_month -s /home/marki -d /home/snapshot/marki
+0 12 * * mon,wed,fri /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /home/snapshot/marki
+0 0,3,6,9,12,15,18,21 * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /home/snapshot/marki 2>&1 | grep -v -e .config/menus -e "previous errors"
+0,20,40 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /home/snapshot/marki 2>&1 | grep -v -e .config/menus -e "previous errors"
 0 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d "/media/USB\ DISK/backups/home"
