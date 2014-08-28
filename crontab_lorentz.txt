@@ -1,0 +1,2 @@
+0 0,4,8,12,16,20  * * * PATH=/usr/local/bin:$PATH ; recollindex | grep -v :2:
+0 * * * * cd /home/marki/my/simplesync ; ./simplesync.py --config simplesync.conf | grep -v Changing\ calendar\ to\ JLab
