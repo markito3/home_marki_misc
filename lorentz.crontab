@@ -1,0 +1,2 @@
+0 2,6,10,14,18,22 * * * PATH=/usr/local/bin:$PATH ; /home/marki/google_drive/grive_update.sh
+0 0,6,12,18 * * * PATH=/usr/local/bin:$PATH ; LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH ; RCLCRON_RCLINDEX= RECOLL_CONFDIR="/home/marki/.recoll/" recollindex
