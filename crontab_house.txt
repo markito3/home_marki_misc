@@ -1,6 +1,11 @@
-0 0 * * mon,wed,fri /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /media/KINGSTON/homebox
-0 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_hour 2>&1 | grep -v -e LCK -e LNK -e "previous errors" -e gvfs-metadata -e .house.localdomain -e "previous errors"
-30 * * * * /home/marki/bin/backup.pl -t one_time_no_date -s /home/marki -d /media/KINGSTON/homebox/on_the_half_hour 2>&1 | grep -v -e LCK -e LNK -e "previous errors" -e gvfs-metadata -e .house.localdomain -e "previous errors"
-0 * * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /scratch/backup 2>&1 | grep -v -e LCK -e LNK -e "previous errors"
-15,30,45 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /scratch/backup 2>&1 | grep -v -e LCK -e LNK -e "previous errors"
-0 4 * * * /home/marki/Podcasts/bashpodder.shell
+0 0 * * * cd /home/marki/house/finance ; make
+0 0,12 * * * /home/marki/my/simplesync/simplesync.py
+0 * * * * cd /home/marki/house/lists ; cvs update 2>&1 | grep -v Updating
+0 */2 * * * /home/marki/bin/backup_rsync.sh
+0 0 * * * /home/marki/bin/backup_rsync_daily.sh
+0 0 * * sun /home/marki/bin/backup_rsync_weekly.sh
+0 0 1 * * /home/marki/bin/backup_rsync_monthly.sh
+0 0 * * * /home/marki/bin/backup_marki.sh
+0 0,6,12,18  * * * RCLCRON_RCLINDEX= RECOLL_CONFDIR="/home/marki/.recoll/" recollindex
+0 * * * * cd /home/marki/google_drive; /usr/local/bin/grive
+0 0,3,6,9,12,15,18,21 * * * rm -f ncaa_2016.sql ; mysqldump -umarki -pEthanTak9 ncaa_2016 > ncaa_2016.sql
