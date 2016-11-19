@@ -1,0 +1,5 @@
+7 * * * * cd /home/marki/google_drive ; new_file=grive_markdesk4.txt ; rm -f $new_file ; date > $new_file ; /usr/local/bin/grive
+0 */2 * * * /home/marki/bin/backup_rsync.sh
+0 0 * * * /home/marki/bin/backup_rsync_daily.sh
+0 0 * * sun /home/marki/bin/backup_rsync_weekly.sh
+0 0 1 * * /home/marki/bin/backup_rsync_monthly.sh
