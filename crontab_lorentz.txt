@@ -1,13 +1,11 @@
-#0 2,6,10,14,18,22 * * * PATH=/usr/local/bin:$PATH ; /home/marki/google_drive/grive_update.sh
-0 0,6,12,18 * * * PATH=/home/marki/bin:/usr/local/bin:$PATH ; export LD_LIBRARY_PATH=/usr/local/lib ; RCLCRON_RCLINDEX= RECOLL_CONFDIR="/home/marki/.recoll/" recollindex 2>&1 | grep -v :3:
+0 0 * * * PATH=/home/marki/bin:/usr/local/bin:$PATH ; export LD_LIBRARY_PATH=/usr/local/lib ; RCLCRON_RCLINDEX= RECOLL_CONFDIR="/home/marki/.recoll/" nice recollindex 2>&1 | grep -v :3:
 0 20 * * wed,sat /home/marki/halld/disk_management/disk_database.pl /group/halld group ; /home/marki/halld/disk_management/disk_report.pl group > /tmp/group_report.html ; cp -pv /tmp/group_report.html /group/halld/www/halldweb/html/disk_management/
 0 20 * * thu,sun /home/marki/halld/disk_management/disk_database.pl /work/halld/ work ; /home/marki/halld/disk_management/disk_report.pl work > /tmp/work_report.html ; cp -pv /tmp/work_report.html /group/halld/www/halldweb/html/disk_management/
 0 20 * * fri,mon /home/marki/halld/disk_management/disk_database.pl /work/halld2/ work2 ; /home/marki/halld/disk_management/disk_report.pl work2 > /tmp/work2_report.html ; cp -pv /tmp/work2_report.html /group/halld/www/halldweb/html/disk_management/
 0 20 * * sat,tue /home/marki/halld/disk_management/disk_database.pl /volatile/halld/ volatile ; /home/marki/halld/disk_management/disk_report.pl volatile > /tmp/volatile_report.html ; cp -pv /tmp/volatile_report.html /group/halld/www/halldweb/html/disk_management/
-#0 4,8,12,16,20 * * * /home/marki/bin/backup.pl -t hour_minute -s /home/marki -d /local/scratch/home_marki_backup
-#0,15,30,45 * * * * /home/marki/bin/backup.pl -t minute -s /home/marki -d /local/scratch/home_marki_backup
-#0 0 * * * /home/marki/bin/backup.pl -t day_of_week -s /home/marki -d /local/scratch/home_marki_backup
-0 * * * * cd /tmp ; mv backup_marki_lorentz.log backup_marki_lorentz_previous.log ; /home/marki/bin/backup_marki_lorentz.sh &> backup_marki_lorentz.log
+0 20 * * sun,wed /home/marki/halld/disk_management/disk_database.pl /cache/halld/ cache ; /home/marki/halld/disk_management/disk_report.pl cache > /tmp/cache_report.html ; cp -pv /tmp/cache_report.html /group/halld/www/halldweb/html/disk_management/
+0 */3 * * * cd /tmp ; mv backup_marki_lorentz.log backup_marki_lorentz_previous.log ; nice /home/marki/bin/backup_marki_lorentz.sh &> backup_marki_lorentz.log
 0 0 * * * /home/marki/bin/backup_marki_lorentz_daily.sh
 0 0 * * sun /home/marki/bin/backup_marki_lorentz_weekly.sh
-0 * * * * cd /tmp; mv grive.log grive_previous.log ; cd /home/marki/google_drive ; /usr/local/bin/grive &> /tmp/grive.log
+5 * * * * cd /tmp; mv grive.log grive_previous.log ; cd /home/marki/google_drive ; rm -f grive_lorentz.txt ; date > grive_lorentz.txt ; /usr/local/bin/grive &> /tmp/grive.log
+0 0 1-31/2 * * /home/marki/bin/gluex_install_scratch.sh
