@@ -1,11 +1,7 @@
-0 0 * * * cd /home/marki/house/finance ; make
-0 0,12 * * * /home/marki/my/simplesync/simplesync.py
-0 * * * * cd /home/marki/house/lists ; cvs update 2>&1 | grep -v Updating
-0 */2 * * * /home/marki/bin/backup_rsync.sh
-0 0 * * * /home/marki/bin/backup_rsync_daily.sh
-0 0 * * sun /home/marki/bin/backup_rsync_weekly.sh
-0 0 1 * * /home/marki/bin/backup_rsync_monthly.sh
-0 0 * * * /home/marki/bin/backup_marki.sh
-0 0,6,12,18  * * * RCLCRON_RCLINDEX= RECOLL_CONFDIR="/home/marki/.recoll/" recollindex
-0 * * * * cd /home/marki/google_drive; /usr/local/bin/grive
-0 0,3,6,9,12,15,18,21 * * * rm -f ncaa_2016.sql ; mysqldump -umarki -pEthanTak9 ncaa_2016 > ncaa_2016.sql
+10 */3 * * * cd /home/marki/google_drive ; new_file=grive_markdesk4.txt ; rm -f $new_file ; date > $new_file ; /usr/local/bin/grive
+0 */3 * * * /home/marki/bin/backup_rsync.sh
+0 1 * * * /home/marki/bin/backup_rsync_daily.sh
+0 2 * * sun /home/marki/bin/backup_rsync_weekly.sh
+0 3 1 * * /home/marki/bin/backup_rsync_monthly.sh
+#* * * * * rm -vf ~/test.txt ; date > test.txt ; cat test.txt
+0 0 * * * updatedb -l 0 -o ~/fantom.db -U /run/media/marki/FantomHD
