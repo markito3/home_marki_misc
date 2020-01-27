@@ -4,9 +4,11 @@
 0 */3 * * * cd /tmp ; mv backup_marki_lorentz.log backup_marki_lorentz_previous.log ; nice /home/marki/bin/backup_marki_lorentz.sh &> backup_marki_lorentz.log
 0 0 * * * /home/marki/bin/backup_marki_lorentz_daily.sh
 0 0 * * sun /home/marki/bin/backup_marki_lorentz_weekly.sh
-5,20,35,50 * * * * /home/marki/bin/grive_cron
+#
+# grive
+#
+4,16,28,40,52 * * * * /home/marki/bin/grive_cron
 0 18 * * Sat nice /home/marki/bin/gluex_install_scratch.sh /scratch/marki
-50 17 10 9 * nice /home/marki/bin/gluex_install_scratch.sh /scratch/marki
 0 0 * * * /home/marki/bin/ccdb_connection_count.sh
 #* * * * * /usr/local/bin/singularity exec /local/containers/singularity/centos7.builder cat /etc/redhat-release
 #
