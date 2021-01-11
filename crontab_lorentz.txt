@@ -1,6 +1,10 @@
 0 0 * * * PATH=/home/marki/bin:/usr/local/bin:$PATH ; export LD_LIBRARY_PATH=/usr/local/lib ; RCLCRON_RCLINDEX= RECOLL_CONFDIR="/home/marki/.recoll/" nice recollindex 2>&1 | grep -v :3: | grep -v :2: | grep -v audio/mp4 | grep -v m4a
 #0 20 * * sat,tue export PATH=/home/marki/hd_utilities/disk_management:$PATH ; nice disk_database.pl /volatile/halld/ volatile ; nice disk_report.pl volatile > /tmp/volatile_report.html ; cp -pv /tmp/volatile_report.html /group/halld/www/halldweb/html/disk_management/
 #0 20 * * sun,wed export PATH=/home/marki/hd_utilities/disk_management:$PATH ; nice disk_database.pl /cache/halld/ cache ; nice disk_report.pl cache > /tmp/cache_report.html ; cp -pv /tmp/cache_report.html /group/halld/www/halldweb/html/disk_management/
+#0 0 1,15 * * /group/halld/Software/hd_utilities/disk_management/create_disk_report.sh /work/halld work
+15 14 11 1 * /group/halld/Software/hd_utilities/disk_management/create_disk_report.sh /work/halld work
+0 0 * * sun /group/halld/Software/hd_utilities/disk_management/create_disk_report.sh /group/halld group
+0 0 * * wed /group/halld/Software/hd_utilities/disk_management/create_disk_report.sh /work/halld3 work3
 0 */3 * * * cd /tmp ; mv backup_marki_lorentz.log backup_marki_lorentz_previous.log ; nice /home/marki/bin/backup_marki_lorentz.sh &> backup_marki_lorentz.log
 0 0 * * * /home/marki/bin/backup_marki_lorentz_daily.sh
 0 0 * * sun /home/marki/bin/backup_marki_lorentz_weekly.sh
@@ -9,13 +13,11 @@
 #
 4,16,28,40,52 * * * * /home/marki/bin/grive_cron
 0 18 * * Sat nice /home/marki/bin/gluex_install_scratch.sh /scratch/marki
-0 0 * * * /home/marki/bin/ccdb_connection_count.sh
-#* * * * * /usr/local/bin/singularity exec /local/containers/singularity/centos7.builder cat /etc/redhat-release
-#
-# rsync the builds directory
-#
-0 0 * * sat rsync -ruvtl --delete /group/halld/Software/builds/ /u/scratch/marki/builds/
+21 20 13 12 * nice /home/marki/bin/gluex_install_scratch.sh /scratch/marki
+#0 0 * * * /home/marki/bin/ccdb_connection_count.sh
+0 0 * * sat rsync -rutl --delete /group/halld/Software/builds/ /u/scratch/marki/builds/
 #
 # time history for lorentz
 #
 */5 * * * * /group/halld/Software/time-history-plots/plots/free/free.py
+*/10 * * * * cd /home/marki/git/time-history-plots/plots/query_time ; ./query_time.sh >> /group/halld/time_history_data/query_time.txt
