@@ -1,0 +1,6 @@
+*/10 * * * * export PATH=/usr/local/bin:$PATH; /home/marki/bin/grive_cron
+0 0 * * * wget -q -O - checkip.dyndns.com
+0 */2 * * * /home/marki/bin/backup_marki.sh
+0 0 * * * /home/marki/bin/backup_marki_daily.sh
+0 0 */7 * * /home/marki/bin/backup_marki_weekly.sh
+0 0 1 * * /home/marki/bin/backup_marki_monthly.sh
