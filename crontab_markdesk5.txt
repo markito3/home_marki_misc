@@ -1,8 +1,17 @@
 */10 * * * * export PATH=/usr/local/bin:$PATH; /home/marki/bin/grive_cron
 0 0 * * * wget -q -O - checkip.dyndns.com
-0 */2 * * * date; /home/marki/bin/backup_marki.sh; date
+0 * * * * /home/marki/bin/backup_marki.sh
 0 0 * * * /home/marki/bin/backup_marki_daily.sh
-0 0 */7 * * /home/marki/bin/backup_marki_weekly.sh
+0 0 * * sun /home/marki/bin/backup_marki_weekly.sh
 0 0 1 * * /home/marki/bin/backup_marki_monthly.sh
+#
+# backup Renee
+#
+0 */3 * * * /home/marki/bin/backup_rsync.sh
+0 0 * * * /home/marki/bin/backup_rsync_daily.sh
+0 0 * * sun /home/marki/bin/backup_rsync_weekly.sh
+0 0 1 * * /home/marki/bin/backup_rsync_monthly.sh
+#
 0 0 * * sun singularity exec --cleanenv --bind /data/scratch:/scratch /data/gluex/singularity/gluex_centos-7.7.1908.sif /home/marki/bin/gluex_install_scratch.sh /scratch/gluex_centos7
 0 0 * * mon singularity exec --cleanenv --bind /data/scratch:/scratch /data/gluex/singularity/gluex_centos-8.2.2004.sif /home/marki/bin/gluex_install_scratch.sh /scratch/gluex_centos8
+0 0 * * tue /home/marki/bin/gluex_install_scratch.sh /data/scratch/gluex_fedora34 version_fedora34.xml
