@@ -1,0 +1,2 @@
+* * * * * date >> ~/a.tmp
+2 8 * * * rclone bisync gdrive: /home/marki/google_drive --create-empty-src-dirs --compare size,modtime,checksum --slow-hash-sync-only --resilient -M --drive-skip-gdocs --fix-case
