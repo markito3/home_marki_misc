@@ -1,0 +1,3 @@
+#0,10,20,30,40,50 * * * * /home/marki/bin/grive_cron
+28 * * * * cd ~/google_drive; rm beach0.txt; date > beach0.txt
+29 * * * * rclone bisync gdrive: /home/marki/google_drive --create-empty-src-dirs --compare size,modtime,checksum --slow-hash-sync-only --resilient -M --drive-skip-gdocs --fix-case
