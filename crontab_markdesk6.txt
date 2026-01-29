@@ -8,3 +8,10 @@
 0 0 * * * /home/marki/bin/backup_marki_daily.sh
 0 0 * * sun /home/marki/bin/backup_marki_weekly.sh
 0 0 1 * * /home/marki/bin/backup_marki_monthly.sh
+#
+# backup renee
+#
+30 0,9,12,15,18,21 * * * rm /tmp/backup_renee.log; /home/marki/bin/backup_renee.sh > /tmp/backup_renee.log 2>&1
+0 0 * * * /home/marki/bin/backup_renee_daily.sh
+0 0 * * sun /home/marki/bin/backup_renee_weekly.sh
+0 0 1 * * /home/marki/bin/backup_renee_monthly.sh
